@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using MailChimp.Net.Core;
 
 namespace MailChimp.Net.Models;
@@ -28,113 +28,113 @@ public class Report
     /// <summary>
     /// Gets or sets the abuse reports.
     /// </summary>
-    [JsonProperty("abuse_reports")]
+    [JsonPropertyName("abuse_reports")]
     public int AbuseReports { get; set; }
 
     /// <summary>
     /// Gets or sets the bounces.
     /// </summary>
-    [JsonProperty("bounces")]
+    [JsonPropertyName("bounces")]
     public Bounces Bounces { get; set; }
 
     /// <summary>
     /// Gets or sets the campaign title.
     /// </summary>
-    [JsonProperty("campaign_title")]
+    [JsonPropertyName("campaign_title")]
     public string CampaignTitle { get; set; }
 
 
-    [JsonProperty("subject_line")]
+    [JsonPropertyName("subject_line")]
     public string SubjectLine { get; set; }
 
     /// <summary>
     /// Gets or sets the clicks.
     /// </summary>
-    [JsonProperty("clicks")]
+    [JsonPropertyName("clicks")]
     public Clicks Clicks { get; set; }
 
     /// <summary>
     /// Gets or sets the delivery status.
     /// </summary>
-    [JsonProperty("delivery_status")]
+    [JsonPropertyName("delivery_status")]
     public DeliveryStatus DeliveryStatus { get; set; }
 
     /// <summary>
     /// Gets or sets the emails sent.
     /// </summary>
-    [JsonProperty("emails_sent")]
+    [JsonPropertyName("emails_sent")]
     public int EmailsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the facebook likes.
     /// </summary>
-    [JsonProperty("facebook_likes")]
+    [JsonPropertyName("facebook_likes")]
     public FacebookLikes FacebookLikes { get; set; }
 
     /// <summary>
     /// Gets or sets the forwards.
     /// </summary>
-    [JsonProperty("forwards")]
+    [JsonPropertyName("forwards")]
     public Forwards Forwards { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the industry stats.
     /// </summary>
-    [JsonProperty("industry_stats")]
+    [JsonPropertyName("industry_stats")]
     public IndustryStats IndustryStats { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// Gets or sets the list stats.
     /// </summary>
-    [JsonProperty("list_stats")]
+    [JsonPropertyName("list_stats")]
     public ListStats ListStats { get; set; }
 
     /// <summary>
     /// Gets or sets the opens.
     /// </summary>
-    [JsonProperty("opens")]
+    [JsonPropertyName("opens")]
     public Opens Opens { get; set; }
 
     /// <summary>
     /// Gets or sets the send time.
     /// </summary>
-    [JsonProperty("send_time")]
+    [JsonPropertyName("send_time")]
     public string SendTime { get; set; }
 
     /// <summary>
     /// Gets or sets the share report.
     /// </summary>
-    [JsonProperty("share_report")]
+    [JsonPropertyName("share_report")]
     public ShareReport ShareReport { get; set; }
 
     /// <summary>
     /// Gets or sets the timeseries.
     /// </summary>
-    [JsonProperty("timeseries")]
+    [JsonPropertyName("timeseries")]
     public IEnumerable<Timesery> Timeseries { get; set; }
 
     /// <summary>
     /// Gets or sets the type.
     /// </summary>
-    [JsonProperty("type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<CampaignType>))]
     public CampaignType Type { get; set; }
 
     /// <summary>
     /// Gets or sets the unsubscribed.
     /// </summary>
-    [JsonProperty("unsubscribed")]
+    [JsonPropertyName("unsubscribed")]
     public int Unsubscribed { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="File.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
@@ -9,7 +9,7 @@
 
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using MailChimp.Net.Core;
 
 namespace MailChimp.Net.Models;
@@ -20,40 +20,40 @@ namespace MailChimp.Net.Models;
 public class FileManagerFile
 {
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
-    [JsonProperty("folder_id")]
+    [JsonPropertyName("folder_id")]
     public int FolderId { get; set; }
 
-    [JsonProperty("type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<FileType>))]
     public FileType Type { get; set; }
 
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
 
-    [JsonProperty("full_size_url")]
+    [JsonPropertyName("full_size_url")]
     public string FullSizeUrl { get; set; }
 
-    [JsonProperty("thumbnail_url")]
+    [JsonPropertyName("thumbnail_url")]
     public string ThumbnailUrl { get; set; }
 
-    [JsonProperty("size")]
+    [JsonPropertyName("size")]
     public int Size { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
 
-    [JsonProperty("created_by")]
+    [JsonPropertyName("created_by")]
     public string CreatedBy { get; set; }
 
-    [JsonProperty("width")]
+    [JsonPropertyName("width")]
     public int Width { get; set; }
 
-    [JsonProperty("height")]
+    [JsonPropertyName("height")]
     public int Height { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IList<Link> Links { get; set; }
 }

@@ -1,18 +1,18 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core.Responses;
 
 public class MergeFields
 {
-    [JsonProperty("FNAME")]
+    [JsonPropertyName("FNAME")]
     public string FirstName { get; set; }
 
-    [JsonProperty("LNAME")]
+    [JsonPropertyName("LNAME")]
     public string LastName { get; set; }
 
-    [JsonProperty("ADDRESS")]
+    [JsonPropertyName("ADDRESS")]
     public string Address { get; set; }
 
-    [JsonProperty("PHONE")]
+    [JsonPropertyName("PHONE")]
     public string Phone { get; set; }
 }

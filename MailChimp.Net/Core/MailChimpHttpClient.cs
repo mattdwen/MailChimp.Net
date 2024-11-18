@@ -4,10 +4,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace MailChimp.Net.Core;
 /// </summary>
 public class MailChimpHttpClient : IDisposable
 {
-    private static readonly JsonSerializerSettings JsonSettings = new()
+    private static readonly JsonSerializerOptions JsonSettings = new()
     {
-        NullValueHandling = NullValueHandling.Ignore
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
 
     private readonly MailChimpOptions _options;
@@ -102,7 +103,7 @@ public class MailChimpHttpClient : IDisposable
     /// <returns>
     /// The <see cref="Task"/>.
     /// </returns>
-    public Task<HttpResponseMessage> PutAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerSettings settings = null) 
+    public Task<HttpResponseMessage> PutAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerOptions settings = null) 
         => SendAsync(HttpMethod.Put, requestUri, GetStringContent(value, settings), cancellationToken);
 
     /// <summary>
@@ -120,7 +121,7 @@ public class MailChimpHttpClient : IDisposable
     /// <returns>
     /// The <see cref="Task"/>.
     /// </returns>
-    public Task<HttpResponseMessage> PatchAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerSettings settings = null) 
+    public Task<HttpResponseMessage> PatchAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerOptions settings = null) 
         => SendAsync(new HttpMethod("PATCH"), requestUri, GetStringContent(value, settings), cancellationToken);
 
     /// <summary>
@@ -137,11 +138,11 @@ public class MailChimpHttpClient : IDisposable
     /// <returns>
     /// The <see cref="Task"/>.
     /// </returns>
-    public Task<HttpResponseMessage> PostAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerSettings settings = null) 
+    public Task<HttpResponseMessage> PostAsJsonAsync<T>(string requestUri, T value, CancellationToken cancellationToken, JsonSerializerOptions settings = null) 
         => SendAsync(HttpMethod.Post, requestUri, GetStringContent(value, settings), cancellationToken);
 
-    private StringContent GetStringContent<T>(T value, JsonSerializerSettings settings) 
-        => new StringContent(JsonConvert.SerializeObject(value, settings ?? JsonSettings), Encoding.UTF8, "application/json");
+    private StringContent GetStringContent<T>(T value, JsonSerializerOptions settings) 
+        => new StringContent(JsonSerializer.Serialize(value, settings ?? JsonSettings), Encoding.UTF8, "application/json");
 
     private Task<HttpResponseMessage> SendAsync(HttpMethod method, string requestUri, HttpContent contentOrNull, CancellationToken cancellationToken)
     {

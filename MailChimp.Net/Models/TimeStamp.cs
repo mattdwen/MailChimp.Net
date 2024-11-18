@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 using System;
 
@@ -19,7 +19,7 @@ public class TimeStamp
     /// <summary>
     /// Gets or sets the Timestamp.
     /// </summary>
-    [JsonProperty("timestamp")]
+    [JsonPropertyName("timestamp")]
     public DateTime Timestamp { get; set; }
 
 }

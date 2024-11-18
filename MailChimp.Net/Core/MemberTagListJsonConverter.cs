@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MailChimp.Net.Core;
 
@@ -12,23 +13,22 @@ namespace MailChimp.Net.Core;
 /// This Converter is used to serialize MemberTag lists to the appropriate form
 /// for PUT/POST requests. In these request, MailChimp requires just a simple array of tag names.
 /// </summary>
-public class MemberTagListJsonConverter : JsonConverter
+public class MemberTagListJsonConverter : JsonConverter<List<MemberTag>>
 {
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+    public override List<MemberTag> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        var memberTags = (List<MemberTag>)value;
-
-        writer.WriteStartArray();
-        foreach (var tag in memberTags)
-        {
-            writer.WriteToken(JsonToken.String, tag.Name);
-        }
-        writer.WriteEndArray();
+        throw new NotImplementedException();
     }
 
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) => throw new NotImplementedException();
+    public override void Write(Utf8JsonWriter writer, List<MemberTag> value, JsonSerializerOptions options)
+    {
+        writer.WriteStartArray();
+        foreach (var tag in value)
+        {
+            writer.WriteStringValue(tag.Name);
+        }
+        writer.WriteEndArray();
 
-    public override bool CanConvert(Type objectType) => objectType == typeof(List<MemberTag>);
-
-    public override bool CanRead => false;
+        throw new NotImplementedException();
+    }
 }

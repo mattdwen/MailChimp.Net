@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -11,30 +11,30 @@ public class Line
         Links = new List<Link>();
     }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("product_id")]
+    [JsonPropertyName("product_id")]
     public string ProductId { get; set; }
 
-    [JsonProperty("product_title")]
+    [JsonPropertyName("product_title")]
     public string ProductTitle { get; set; }
 
-    [JsonProperty("product_variant_id")]
+    [JsonPropertyName("product_variant_id")]
     public string ProductVariantId { get; set; }
 
-    [JsonProperty("product_variant_title")]
+    [JsonPropertyName("product_variant_title")]
     public string ProductVariantTitle { get; set; }
 
-    [JsonProperty("quantity")]
+    [JsonPropertyName("quantity")]
     public int Quantity { get; set; }
 
-    [JsonProperty("price")]
+    [JsonPropertyName("price")]
     public decimal Price { get; set; }
 
-    [JsonProperty("discount")]
+    [JsonPropertyName("discount")]
     public decimal? Discount { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IList<Link> Links { get; set; }
 }

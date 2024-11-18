@@ -1,14 +1,12 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="AbuseReportResponse.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-
+using System.Text.Json.Serialization;
 using MailChimp.Net.Models;
-
-using Newtonsoft.Json;
 
 namespace MailChimp.Net.Core;
 
@@ -29,14 +27,14 @@ public class AbuseReportResponse : BaseResponse
     /// <summary>
     /// Gets or sets the abuse reports.
     /// </summary>
-    [JsonProperty("abuse_reports")]
+    [JsonPropertyName("abuse_reports")]
     public IEnumerable<AbuseReport> AbuseReports { get; set; }
     
 
     /// <summary>
     /// Gets or sets the list id.
     /// </summary>
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
     
 }

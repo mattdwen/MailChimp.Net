@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
 	public class BatchRequest
 	{
-		[JsonProperty("operations")]
+		[JsonPropertyName("operations")]
 		public IEnumerable<Operation> Operations { get; set; }
 	}

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace MailChimp.Net.Models;
@@ -9,11 +9,11 @@ public class ContentTemplate
 {
     /// <summary>
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
     /// <summary>
     /// </summary>
-    [JsonProperty("sections")]
+    [JsonPropertyName("sections")]
     public Dictionary<string, object> Sections { get; set; }
 }

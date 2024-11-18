@@ -1,11 +1,11 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Condition.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
 using MailChimp.Net.Core;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -17,23 +17,23 @@ public class Condition
     /// <summary>
     /// Gets or sets the field.
     /// </summary>
-    [JsonProperty("field")]
+    [JsonPropertyName("field")]
     public string Field { get; set; }
 
-    [JsonProperty("condition_type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("condition_type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<ConditionType>))]
     public ConditionType Type { get; set; }
 
-    [JsonProperty("op")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("op")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<Operator>))]
     public Operator Operator { get; set; }
 
-    [JsonProperty("extra")]
+    [JsonPropertyName("extra")]
     public string Extra { get; set; }
 
     /// <summary>
     /// Gets or sets the value.
     /// </summary>
-    [JsonProperty("value")]
+    [JsonPropertyName("value")]
     public dynamic Value { get; set; }
 }

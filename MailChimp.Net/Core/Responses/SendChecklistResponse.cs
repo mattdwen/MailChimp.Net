@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -20,12 +20,12 @@ public class SendChecklistResponse : BaseResponse
     /// <summary>
     /// Gets or sets the check lists.
     /// </summary>
-    [JsonProperty("items")]
+    [JsonPropertyName("items")]
     public IEnumerable<CheckList> CheckLists { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether is ready.
     /// </summary>
-    [JsonProperty("is_ready")]
+    [JsonPropertyName("is_ready")]
     public bool IsReady { get; set; }
 }

@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,24 +16,24 @@ public class Goal
     /// <summary>
     /// Gets or sets the data.
     /// </summary>
-    [JsonProperty("data")]
+    [JsonPropertyName("data")]
     public string Data { get; set; }
 
     /// <summary>
     /// Gets or sets the event.
     /// </summary>
-    [JsonProperty("event")]
+    [JsonPropertyName("event")]
     public string Event { get; set; }
 
     /// <summary>
     /// Gets or sets the goal id.
     /// </summary>
-    [JsonProperty("goal_id")]
+    [JsonPropertyName("goal_id")]
     public int GoalId { get; set; }
 
     /// <summary>
     /// Gets or sets the last visited at.
     /// </summary>
-    [JsonProperty("last_visited_at")]
+    [JsonPropertyName("last_visited_at")]
     public string LastVisitedAt { get; set; }
 }

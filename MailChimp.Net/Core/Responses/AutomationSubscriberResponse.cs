@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -28,18 +28,18 @@ public class AutomationSubscriberResponse
     /// <summary>
     /// Gets or sets the subscribers.
     /// </summary>
-    [JsonProperty("subscribers")]
+    [JsonPropertyName("subscribers")]
     public IEnumerable<Subscriber> Subscribers { get; set; }
 
     /// <summary>
     /// Gets or sets the total items.
     /// </summary>
-    [JsonProperty("total_items")]
+    [JsonPropertyName("total_items")]
     public int TotalItems { get; set; }
 
     /// <summary>
     /// Gets or sets the workflow id.
     /// </summary>
-    [JsonProperty("workflow_id")]
+    [JsonPropertyName("workflow_id")]
     public string WorkflowId { get; set; }
 }

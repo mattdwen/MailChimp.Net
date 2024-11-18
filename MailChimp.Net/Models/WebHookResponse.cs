@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -11,21 +11,21 @@ public class WebHook
         Links = new HashSet<Link>();
     }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string Url { get; set; }
 
-    [JsonProperty("events")]
+    [JsonPropertyName("events")]
     public Event Event { get; set; }
 
-    [JsonProperty("sources")]
+    [JsonPropertyName("sources")]
     public Source Source { get; set; }
 
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 }

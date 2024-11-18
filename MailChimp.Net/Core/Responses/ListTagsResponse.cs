@@ -1,5 +1,5 @@
 ﻿using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +8,6 @@ namespace MailChimp.Net.Core;
 
 public class ListTagsResponse : BaseResponse
 {
-    [JsonProperty("tags")]
+    [JsonPropertyName("tags")]
     public IEnumerable<ListTag> Tags { get; set; }
 }

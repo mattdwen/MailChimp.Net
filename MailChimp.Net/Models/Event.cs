@@ -1,24 +1,24 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class Event
 {
-    [JsonProperty("subscribe")]
+    [JsonPropertyName("subscribe")]
     public bool Subscribe { get; set; }
 
-    [JsonProperty("unsubscribe")]
+    [JsonPropertyName("unsubscribe")]
     public bool Unsubscribe { get; set; }
 
-    [JsonProperty("profile")]
+    [JsonPropertyName("profile")]
     public bool Profile { get; set; }
 
-    [JsonProperty("cleaned")]
+    [JsonPropertyName("cleaned")]
     public bool Cleaned { get; set; }
 
-    [JsonProperty("upemail")]
+    [JsonPropertyName("upemail")]
     public bool Upemail { get; set; }
 
-    [JsonProperty("campaign")]
+    [JsonPropertyName("campaign")]
     public bool Campaign { get; set; }
 }

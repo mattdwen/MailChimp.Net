@@ -11,7 +11,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MailChimp.Net.Core;
 
@@ -109,8 +110,7 @@ public static class Helper
     private static T Deserialize<T>(this Stream stream)
     {
         using var reader = new StreamReader(stream);
-        using var jsonReader = new JsonTextReader(reader);
-        var jsonSerializer = new JsonSerializer();
-        return jsonSerializer.Deserialize<T>(jsonReader);
+        var json = reader.ReadToEnd(); // Read the stream content as a string
+        return JsonSerializer.Deserialize<T>(json);
     }
 }

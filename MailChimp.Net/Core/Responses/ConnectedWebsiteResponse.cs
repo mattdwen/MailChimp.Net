@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
 public class ConnectedWebsiteResponse
 {
-    [JsonProperty("sites")]
+    [JsonPropertyName("sites")]
     public IEnumerable<Site> Sites { get; set; } = new HashSet<Site>();
 
-    [JsonProperty("total_items")]
+    [JsonPropertyName("total_items")]
     public int TotalItems { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; } = new HashSet<Link>();
 }

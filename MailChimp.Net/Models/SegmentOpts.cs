@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="SegmentOpts.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 using MailChimp.Net.Core;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -24,20 +24,20 @@ public class SegmentOptions
     /// <summary>
     /// Gets or sets the conditions.
     /// </summary>
-    [JsonProperty("conditions")]
+    [JsonPropertyName("conditions")]
     public IEnumerable<Condition> Conditions { get; set; }
 
     /// <summary>
     /// Gets or sets the match.
     /// </summary>
     /// <see cref="Models.Match"/>
-    [JsonProperty("match")]
-		[JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("match")]
+	[JsonConverter(typeof(StringEnumDescriptionConverter<Match>))]
     public Match Match { get; set; }
 
     /// <summary>
     /// Gets or sets the saved segment id.
     /// </summary>
-    [JsonProperty("saved_segment_id")]
+    [JsonPropertyName("saved_segment_id")]
     public int SavedSegmentId { get; set; }
 }

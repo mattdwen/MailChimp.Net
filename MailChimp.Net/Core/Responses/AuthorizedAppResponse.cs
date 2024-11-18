@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -20,6 +20,6 @@ public class AuthorizedAppResponse : BaseResponse
     /// <summary>
     /// Gets or sets the apps.
     /// </summary>
-    [JsonProperty("apps")]
+    [JsonPropertyName("apps")]
     public IEnumerable<App> Apps { get; set; }
 }

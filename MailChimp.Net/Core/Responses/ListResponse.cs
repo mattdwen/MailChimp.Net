@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -27,6 +27,6 @@ public class ListResponse : BaseResponse
     /// <summary>
     /// Gets or sets the lists.
     /// </summary>
-    [JsonProperty("lists")]
+    [JsonPropertyName("lists")]
     public IEnumerable<List> Lists { get; set; }
 }

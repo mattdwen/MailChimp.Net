@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,12 +16,12 @@ public class Archive
     /// <summary>
     /// Gets or sets the archive content. [Required]
     /// </summary>
-    [JsonProperty("archive_content", Required = Required.Always)]
+    [JsonPropertyName("archive_content"), JsonRequired]
     public string ArchiveContent { get; set; }
 
     /// <summary>
     /// Gets or sets the archive type.
     /// </summary>
-    [JsonProperty("archive_type")]
+    [JsonPropertyName("archive_type")]
     public string ArchiveType { get; set; }
 }

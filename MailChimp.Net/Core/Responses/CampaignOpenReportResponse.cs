@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -28,18 +28,18 @@ public class CampaignOpenReportResponse : BaseResponse
     /// <summary>
     /// Gets or sets the members.
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public HashSet<Open> Members { get; set; }
 
     /// <summary>
     /// Gets or sets the total opens.
     /// </summary>
-    [JsonProperty("total_opens")]
+    [JsonPropertyName("total_opens")]
     public int TotalOpens { get; set; }
 
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 }

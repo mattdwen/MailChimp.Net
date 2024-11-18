@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Template.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using MailChimp.Net.Core;
 
 namespace MailChimp.Net.Models;
@@ -19,79 +19,79 @@ public class Template
     /// <summary>
     /// Gets or sets a value indicating whether active.
     /// </summary>
-    [JsonProperty("active")]
+    [JsonPropertyName("active")]
     public bool Active { get; set; }
 
     /// <summary>
     /// Gets or sets the category.
     /// </summary>
-    [JsonProperty("category")]
+    [JsonPropertyName("category")]
     public string Category { get; set; }
 
     /// <summary>
     /// Gets or sets the created by.
     /// </summary>
-    [JsonProperty("created_by")]
+    [JsonPropertyName("created_by")]
     public string CreatedBy { get; set; }
 
     /// <summary>
     /// Gets or sets the date created.
     /// </summary>
-    [JsonProperty("date_created")]
+    [JsonPropertyName("date_created")]
     public string DateCreated { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether drag and drop.
     /// </summary>
-    [JsonProperty("drag_and_drop")]
+    [JsonPropertyName("drag_and_drop")]
     public bool DragAndDrop { get; set; }
 
     /// <summary>
     /// Gets or sets the folder id.
     /// </summary>
-    [JsonProperty("folder_id")]
+    [JsonPropertyName("folder_id")]
     public string FolderId { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// Gets or sets the name.
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether responsive.
     /// </summary>
-    [JsonProperty("responsive")]
+    [JsonPropertyName("responsive")]
     public bool Responsive { get; set; }
 
     /// <summary>
     /// Gets or sets the share url.
     /// </summary>
-    [JsonProperty("share_url")]
+    [JsonPropertyName("share_url")]
     public string ShareUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the thumbnail.
     /// </summary>
-    [JsonProperty("thumbnail")]
+    [JsonPropertyName("thumbnail")]
     public string Thumbnail { get; set; }
 
     /// <summary>
     /// Gets or sets the type.
     /// </summary>
-    [JsonProperty("type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<TemplateType>))]
     public TemplateType Type { get; set; }
 }

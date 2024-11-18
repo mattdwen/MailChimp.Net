@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -28,18 +28,18 @@ public class DomainPerformanceResponse : BaseResponse
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
     /// <summary>
     /// Gets or sets the domains.
     /// </summary>
-    [JsonProperty("domains")]
+    [JsonPropertyName("domains")]
     public IEnumerable<Domain> Domains { get; set; }
 
     /// <summary>
     /// Gets or sets the total sent.
     /// </summary>
-    [JsonProperty("total_sent")]
+    [JsonPropertyName("total_sent")]
     public int TotalSent { get; set; }
 }

@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,18 +16,18 @@ public class Client
     /// <summary>
     /// Gets or sets the client name.
     /// </summary>
-    [JsonProperty("client")]
+    [JsonPropertyName("client")]
     public string ClientName { get; set; }
 
     /// <summary>
     /// Gets or sets the list id.
     /// </summary>
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 
     /// <summary>
     /// Gets or sets the members.
     /// </summary>
-    [JsonProperty("members")]
+    [JsonPropertyName("members")]
     public int Members { get; set; }
 }

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Core;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -32,183 +32,183 @@ namespace MailChimp.Net.Models;
     /// <summary>
     /// Gets or sets the email address.
     /// </summary>
-    [JsonProperty("email_address")]
+    [JsonPropertyName("email_address")]
     public string EmailAddress { get; set; }
 
     /// <summary>
     /// Source of the member
     /// </summary>
-    [JsonProperty("source")]
+    [JsonPropertyName("source")]
     public string Source { get; set; }
 
     /// <summary>
     /// The full name of the member
     /// </summary>
-    [JsonProperty("full_name")]
+    [JsonPropertyName("full_name")]
     public string FullName { get; set; }
 
     /// <summary>
     /// Gets or sets the contact id
     /// </summary>
-    [JsonProperty("contact_id")]
+    [JsonPropertyName("contact_id")]
     public string ContactId { get; set; }
 
     /// <summary>
     /// Gets or sets the email client.
     /// </summary>
-    [JsonProperty("email_client")]
+    [JsonPropertyName("email_client")]
 		public string EmailClient { get; set; }
 
     /// <summary>
     /// Gets or sets the email type.
     /// </summary>
-    [JsonProperty("email_type")]
+    [JsonPropertyName("email_type")]
     public string EmailType { get; set; }
 
     /// <summary>
     /// Gets or sets the constents flag
     /// </summary>
-    [JsonProperty("consents_to_one_to_one_messaging")]
+    [JsonPropertyName("consents_to_one_to_one_messaging")]
     public bool ConsentsToOneToOneMessaging { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
 		public string Id { get; set; }
 
 		/// <summary>
 		/// Gets or sets the interests.
 		/// </summary>
-		[JsonProperty("interests")]
+		[JsonPropertyName("interests")]
 		public Dictionary<string, bool> Interests { get; set; }
 
 		/// <summary>
 		/// Gets or sets the ip opt.
 		/// </summary>
-		[JsonProperty("ip_opt")]
+		[JsonPropertyName("ip_opt")]
 		public string IpOpt { get; set; }
 
 		/// <summary>
 		/// Gets or sets the ip signup.
 		/// </summary>
-		[JsonProperty("ip_signup")]
+		[JsonPropertyName("ip_signup")]
 		public string IpSignup { get; set; }
 
 		/// <summary>
 		/// Gets or sets the language.
 		/// </summary>
-		[JsonProperty("language")]
+		[JsonPropertyName("language")]
 		public string Language { get; set; }
 
 		/// <summary>
 		/// Gets or sets the last changed.
 		/// </summary>
-		[JsonProperty("last_changed")]
+		[JsonPropertyName("last_changed")]
 		public string LastChanged { get; set; }
 
 		/// <summary>
 		/// Gets or sets the links.
 		/// </summary>
-		[JsonProperty("_links")]
+		[JsonPropertyName("_links")]
 		public IEnumerable<Link> Links { get; set; }
 
 		/// <summary>
 		/// Gets or sets the list id.
 		/// </summary>
-		[JsonProperty("list_id")]
+		[JsonPropertyName("list_id")]
 		public string ListId { get; set; }
 
 		/// <summary>
 		/// Gets the location.
 		/// </summary>
-		[JsonProperty("location")]
+		[JsonPropertyName("location")]
 		public Location Location { get; set; }
 
 		/// <summary>
 		/// Gets or sets the marketing permissions.
 		/// </summary>
-		[JsonProperty("marketing_permissions")]
+		[JsonPropertyName("marketing_permissions")]
 		public IEnumerable<MarketingPermission> MarketingPermissions { get; set; }
 
 		/// <summary>
 		/// Gets or sets the member rating.
 		/// </summary>
-		[JsonProperty("member_rating")]
+		[JsonPropertyName("member_rating")]
 		public int MemberRating { get; set; }
 
 		/// <summary>
 		/// Gets or sets the merge fields.
 		/// </summary>
-		[JsonProperty("merge_fields")]
+		[JsonPropertyName("merge_fields")]
 		public Dictionary<string, object> MergeFields { get; set; }
 
 		/// <summary>
 		/// Gets or sets the number of tags.
 		/// </summary>
-		[JsonProperty("tags_count")]
+		[JsonPropertyName("tags_count")]
 		public int TagsCount { get; set; }
 
 		/// <summary>
 		/// Gets or sets the tags.
 		/// </summary>
-		[JsonProperty("tags")]
+		[JsonPropertyName("tags")]
     [JsonConverter(typeof(MemberTagListJsonConverter))] // This converted is used to serialize the tag list to a simple array of strings for PUT/POST requests
 		public List<MemberTag> Tags { get; set; }
 
 		/// <summary>
 		/// Gets or sets the last Note.
 		/// </summary>
-		[JsonProperty("last_note")]
+		[JsonPropertyName("last_note")]
 		public MemberLastNote LastNote { get; set; }
 
 		/// <summary>
 		/// Gets or sets the stats.
 		/// </summary>
-		[JsonProperty("stats")]
+		[JsonPropertyName("stats")]
 		public MemberStats Stats { get; set; }
 
 		/// <summary>
 		/// Sets the member's status unless they are new.  Then you need to use the <see cref="StatusIfNew"/> property.  Default value is <see cref="Status.Undefined"/>  
 		/// </summary>
-		[JsonProperty("status")]
-		[JsonConverter(typeof(StringEnumDescriptionConverter))]
+		[JsonPropertyName("status")]
+		[JsonConverter(typeof(StringEnumDescriptionConverter<Status>))]
 		public Status Status { get; set; }
 
-		[JsonProperty("status_if_new")]
-		[JsonConverter(typeof(StringEnumDescriptionConverter))]
+		[JsonPropertyName("status_if_new")]
+		[JsonConverter(typeof(StringEnumDescriptionConverter<Status>))]
 		public Status StatusIfNew { get; set; }
 
-		[JsonProperty("unsubscribe_reason")]
+		[JsonPropertyName("unsubscribe_reason")]
 		public string UnsubscribeReason { get; set; }
 
 		/// <summary>
 		/// Gets or sets the timestamp opt.
 		/// </summary>
-		[JsonProperty("timestamp_opt")]
+		[JsonPropertyName("timestamp_opt")]
 		public string TimestampOpt { get; set; }
 
 		/// <summary>
 		/// Gets or sets the timestamp signup.
 		/// </summary>
-		[JsonProperty("timestamp_signup")]
+		[JsonPropertyName("timestamp_signup")]
 		public string TimestampSignup { get; set; }
 
 		/// <summary>
 		/// Gets or sets the unique email id.
 		/// </summary>
-		[JsonProperty("unique_email_id")]
+		[JsonPropertyName("unique_email_id")]
 		public string UniqueEmailId { get; set; }
 
 		/// <summary>
 		/// Gets or sets a value indicating whether vip.
 		/// </summary>
-		[JsonProperty("vip")]
+		[JsonPropertyName("vip")]
 		public bool Vip { get; set; }
 
     /// <summary>
     /// Gets the ID used in the Mailchimp web application. <para>View this member in your Mailchimp account at https://{dc}.admin.mailchimp.com/lists/members/view?id={web_id}.</para>
     /// </summary>
-    [JsonProperty("web_id")]
+    [JsonPropertyName("web_id")]
     public int WebId { get; set; }
 }

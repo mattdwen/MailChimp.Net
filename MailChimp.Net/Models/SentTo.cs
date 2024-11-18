@@ -5,7 +5,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -17,60 +17,60 @@ public class SentTo
     /// <summary>
     /// Gets or sets the absplit group.
     /// </summary>
-    [JsonProperty("absplit_group")]
+    [JsonPropertyName("absplit_group")]
     public string AbsplitGroup { get; set; }
 
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
     /// <summary>
     /// Gets or sets the email address.
     /// </summary>
-    [JsonProperty("email_address")]
+    [JsonPropertyName("email_address")]
     public string EmailAddress { get; set; }
 
     /// <summary>
     /// Gets or sets the email id.
     /// </summary>
-    [JsonProperty("email_id")]
+    [JsonPropertyName("email_id")]
     public string EmailId { get; set; }
 
     /// <summary>
     /// Gets or sets the gmt offset.
     /// </summary>
-    [JsonProperty("gmt_offset")]
+    [JsonPropertyName("gmt_offset")]
     public int GmtOffset { get; set; }
 
     /// <summary>
     /// Gets or sets the last open.
     /// </summary>
-    [JsonProperty("last_open")]
+    [JsonPropertyName("last_open")]
     public DateTime? LastOpen { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public Link[] Links { get; set; }
 
     /// <summary>
     /// Gets or sets the list id.
     /// </summary>
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 
     /// <summary>
     /// Gets or sets the open count.
     /// </summary>
-    [JsonProperty("open_count")]
+    [JsonPropertyName("open_count")]
     public int OpenCount { get; set; }
 
     /// <summary>
     /// Gets or sets the status.
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
 }

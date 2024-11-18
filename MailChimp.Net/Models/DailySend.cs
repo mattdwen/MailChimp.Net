@@ -1,27 +1,27 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class DailySend
 {
-    [JsonProperty("sunday")]
+    [JsonPropertyName("sunday")]
     public bool Sunday { get; set; }
 
-    [JsonProperty("monday")]
+    [JsonPropertyName("monday")]
     public bool Monday { get; set; }
 
-    [JsonProperty("tuesday")]
+    [JsonPropertyName("tuesday")]
     public bool Tuesday { get; set; }
 
-    [JsonProperty("wednesday")]
+    [JsonPropertyName("wednesday")]
     public bool Wednesday { get; set; }
 
-    [JsonProperty("thursday")]
+    [JsonPropertyName("thursday")]
     public bool Thursday { get; set; }
 
-    [JsonProperty("friday")]
+    [JsonPropertyName("friday")]
     public bool Friday { get; set; }
 
-    [JsonProperty("saturday")]
+    [JsonPropertyName("saturday")]
     public bool Saturday { get; set; }
 }

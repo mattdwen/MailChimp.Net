@@ -5,7 +5,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -17,29 +17,29 @@ public class Content
     /// <summary>
     /// Gets or sets the html.
     /// </summary>
-    [JsonProperty("html")]
+    [JsonPropertyName("html")]
     public string Html { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// </summary>
-    [JsonProperty("variate_contents")]
+    [JsonPropertyName("variate_contents")]
     public IEnumerable<VariateContents> VariateContents { get; set; }
 
     /// <summary>
     /// Gets or sets the plain text.
     /// </summary>
-    [JsonProperty("plain_text")]
+    [JsonPropertyName("plain_text")]
     public string PlainText { get; set; }
 
     /// <summary>
     /// The Archive HTML for the campaign.
     /// </summary>
-    [JsonProperty("archive_html")]
+    [JsonPropertyName("archive_html")]
     public string ArchiveHtml { get; set; }
 }

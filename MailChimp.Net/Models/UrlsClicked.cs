@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -27,54 +27,54 @@ public class UrlClicked
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
     /// <summary>
     /// Gets or sets the click percentage.
     /// </summary>
-    [JsonProperty("click_percentage")]
+    [JsonPropertyName("click_percentage")]
     public double ClickPercentage { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the last click.
     /// </summary>
-    [JsonProperty("last_click")]
+    [JsonPropertyName("last_click")]
     public DateTime? LastClick { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// Gets or sets the total clicks.
     /// </summary>
-    [JsonProperty("total_clicks")]
+    [JsonPropertyName("total_clicks")]
     public int TotalClicks { get; set; }
 
     /// <summary>
     /// Gets or sets the unique click percentage.
     /// </summary>
-    [JsonProperty("unique_click_percentage")]
+    [JsonPropertyName("unique_click_percentage")]
     public double UniqueClickPercentage { get; set; }
 
     /// <summary>
     /// Gets or sets the unique clicks.
     /// </summary>
-    [JsonProperty("unique_clicks")]
+    [JsonPropertyName("unique_clicks")]
     public int UniqueClicks { get; set; }
 
     /// <summary>
     /// Gets or sets the url.
     /// </summary>
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string Url { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -12,12 +12,12 @@ public class FileManagerFolderResponse
         Links = new HashSet<Link>();
     }
 
-    [JsonProperty("folders")]
+    [JsonPropertyName("folders")]
     public IEnumerable<FileManagerFolder> Folders { get; set; }
 
-    [JsonProperty("total_items")]
+    [JsonPropertyName("total_items")]
     public int TotalItems { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 }

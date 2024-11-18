@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,24 +16,24 @@ public class Timesery
     /// <summary>
     /// Gets or sets the emails sent.
     /// </summary>
-    [JsonProperty("emails_sent")]
+    [JsonPropertyName("emails_sent")]
     public int EmailsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the recipients clicks.
     /// </summary>
-    [JsonProperty("recipients_clicks")]
+    [JsonPropertyName("recipients_clicks")]
     public int RecipientsClicks { get; set; }
 
     /// <summary>
     /// Gets or sets the timestamp.
     /// </summary>
-    [JsonProperty("timestamp")]
+    [JsonPropertyName("timestamp")]
     public string Timestamp { get; set; }
 
     /// <summary>
     /// Gets or sets the unique opens.
     /// </summary>
-    [JsonProperty("unique_opens")]
+    [JsonPropertyName("unique_opens")]
     public int UniqueOpens { get; set; }
 }

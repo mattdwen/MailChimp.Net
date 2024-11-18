@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -29,12 +29,12 @@ public class ClickReportResponse : BaseResponse
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
     /// <summary>
     /// Gets or sets the urls clicked.
     /// </summary>
-    [JsonProperty("urls_clicked")]
+    [JsonPropertyName("urls_clicked")]
     public IEnumerable<UrlClicked> UrlsClicked { get; set; }
 }

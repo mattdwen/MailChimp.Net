@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -18,30 +18,30 @@ public class Twitter
     /// <summary>
     /// Gets or sets the first tweet.
     /// </summary>
-    [JsonProperty("first_tweet")]
+    [JsonPropertyName("first_tweet")]
     public string FirstTweet { get; set; }
 
     /// <summary>
     /// Gets or sets the last tweet.
     /// </summary>
-    [JsonProperty("last_tweet")]
+    [JsonPropertyName("last_tweet")]
     public string LastTweet { get; set; }
 
     /// <summary>
     /// Gets or sets the retweets.
     /// </summary>
-    [JsonProperty("retweets")]
+    [JsonPropertyName("retweets")]
     public int Retweets { get; set; }
 
     /// <summary>
     /// Gets or sets the statuses.
     /// </summary>
-    [JsonProperty("retweets")]
+    [JsonPropertyName("retweets")]
     public IEnumerable<Status> Statuses { get; set; }
 
     /// <summary>
     /// Gets or sets the tweets.
     /// </summary>
-    [JsonProperty("tweets")]
+    [JsonPropertyName("tweets")]
     public int Tweets { get; set; }
 }

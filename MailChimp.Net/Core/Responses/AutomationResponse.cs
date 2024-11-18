@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -28,6 +28,6 @@ public class AutomationResponse : BaseResponse
     /// <summary>
     /// Gets or sets the automations.
     /// </summary>
-    [JsonProperty("automations")]
+    [JsonPropertyName("automations")]
     public IEnumerable<Automation> Automations { get; set; }
 }

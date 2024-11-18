@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -22,12 +22,12 @@ namespace MailChimp.Net.Core;
 		/// <summary>
 		/// Gets or sets the tags.
 		/// </summary>
-		[JsonProperty("tags")]
+		[JsonPropertyName("tags")]
 		public IEnumerable<MemberTag> Tags { get; set; }
 
 		/// <summary>
 		/// Gets or sets the number of tags.
 		/// </summary>
-		[JsonProperty("total_items")]
+		[JsonPropertyName("total_items")]
 		public int NumberOfTags { get; set; }
 	}

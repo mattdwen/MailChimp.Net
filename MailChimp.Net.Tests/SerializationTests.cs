@@ -47,7 +47,7 @@ public class SerializationTests
 
     public class EnumTest
     {
-        [JsonConverter(typeof(StringEnumDescriptionConverter))]
+        [JsonConverter(typeof(StringEnumDescriptionConverter<CampaignType>))]
         public CampaignType CampaignType { get; set; }
     }
 }

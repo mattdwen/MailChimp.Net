@@ -8,7 +8,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -17,6 +17,6 @@ namespace MailChimp.Net.Core;
 /// </summary>
 public class BatchResponse : BaseResponse
 {
-    [JsonProperty("batches")]
+    [JsonPropertyName("batches")]
     public IEnumerable<Batch> Batches { get; set; }
 }

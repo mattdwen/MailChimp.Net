@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,51 +16,51 @@ public class Tracking
     /// <summary>
     /// Gets or sets the clicktale.
     /// </summary>
-    [JsonProperty("clicktale")]
+    [JsonPropertyName("clicktale")]
     public string Clicktale { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether ecomm 360.
     /// </summary>
-    [JsonProperty("ecomm360")]
+    [JsonPropertyName("ecomm360")]
     public bool Ecomm360 { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether goal tracking.
     /// </summary>
-    [JsonProperty("goal_tracking")]
+    [JsonPropertyName("goal_tracking")]
     public bool GoalTracking { get; set; }
 
     /// <summary>
     /// Gets or sets the google analytics.
     /// </summary>
-    [JsonProperty("google_analytics")]
+    [JsonPropertyName("google_analytics")]
     public string GoogleAnalytics { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether html clicks.
     /// </summary>
-    [JsonProperty("html_clicks")]
+    [JsonPropertyName("html_clicks")]
     public bool HtmlClicks { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether opens.
     /// </summary>
-    [JsonProperty("opens")]
+    [JsonPropertyName("opens")]
     public bool Opens { get; set; }
 
-    [JsonProperty("salesforce")]
+    [JsonPropertyName("salesforce")]
     public SalesForce SalesForce { get; set; }
 
-    [JsonProperty("highrise")]
+    [JsonPropertyName("highrise")]
     public HighRise HighRise { get; set; }
 
-    [JsonProperty("capsule")]
+    [JsonPropertyName("capsule")]
     public Capsule Capsule { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether text clicks.
     /// </summary>
-    [JsonProperty("text_clicks")]
+    [JsonPropertyName("text_clicks")]
     public bool TextClicks { get; set; }
 }

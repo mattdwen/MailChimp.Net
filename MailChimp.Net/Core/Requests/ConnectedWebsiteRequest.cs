@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core.Requests
 {
     public class ConnectedWebsiteRequest
     {
-        [JsonProperty("domain")]
+        [JsonPropertyName("domain")]
         public string domain { get; set; }
 
-        [JsonProperty("foreign_id")]
+        [JsonPropertyName("foreign_id")]
         public string foreign_id { get; set; }
     }
 }

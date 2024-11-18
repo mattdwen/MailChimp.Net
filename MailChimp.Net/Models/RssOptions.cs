@@ -1,15 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class RssOptions
 {
-    [JsonProperty("feed_url")]
+    [JsonPropertyName("feed_url")]
     public string Url { get; set; }
-    [JsonProperty("frequency")]
+    [JsonPropertyName("frequency")]
     public string Frequency { get; set; }
-    [JsonProperty("schedule")]
+    [JsonPropertyName("schedule")]
     public Schedule Schedule { get; set; }
-    [JsonProperty("constrain_rss_img")]
+    [JsonPropertyName("constrain_rss_img")]
     public bool ConstrainImage { get; set; }
 }

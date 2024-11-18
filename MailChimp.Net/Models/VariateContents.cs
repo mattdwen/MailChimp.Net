@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -10,19 +10,19 @@ public class VariateContents
     /// <summary>
     /// The label used to identify the content option.
     /// </summary>
-    [JsonProperty("content_label", Required = Required.Always)]
+    [JsonPropertyName("content_label"), JsonRequired]
     public string ContentLabel { get; set; }
 
     /// <summary>
-    /// The plain-text portion of the campaign. If left unspecified, we’ll generate this automatically.
+    /// The plain-text portion of the campaign. If left unspecified, weâ€™ll generate this automatically.
     /// </summary>
-    [JsonProperty("plain_text")]
+    [JsonPropertyName("plain_text")]
     public string PlainText { get; set; }
 
     /// <summary>
     /// The raw HTML for the campaign.
     /// </summary>
-    [JsonProperty("html")]
+    [JsonPropertyName("html")]
     public string Html { get; set; }
 
     /// <summary>

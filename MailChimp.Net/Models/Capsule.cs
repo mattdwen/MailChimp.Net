@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class Capsule
 {
-    [JsonProperty("notes")]
+    [JsonPropertyName("notes")]
     public bool UpdateNotesForCampaign { get; set; }
 }

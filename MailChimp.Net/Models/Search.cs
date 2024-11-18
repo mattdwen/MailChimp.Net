@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace MailChimp.Net.Models;
@@ -11,12 +11,12 @@ public class CampaignSearchResult
         Links = new List<Link>();
     }
 
-    [JsonProperty("results")]
+    [JsonPropertyName("results")]
     public IEnumerable<Result> Results { get; set; }
 
-    [JsonProperty("total_items")]
+    [JsonPropertyName("total_items")]
     public int TotalItems { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 }

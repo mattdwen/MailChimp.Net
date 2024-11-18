@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -11,9 +11,9 @@ public class StorePromoCodeResponse
         PromoCodes = new List<PromoCode>();
     }
 
-    [JsonProperty("store_id")]
+    [JsonPropertyName("store_id")]
     public string StoreId { get; set; }
 
-    [JsonProperty("promo_codes")]
+    [JsonPropertyName("promo_codes")]
     public IList<PromoCode> PromoCodes { get; set; }
 }

@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -26,102 +26,102 @@ public class Email
     /// <summary>
     /// Gets or sets the archive url.
     /// </summary>
-    [JsonProperty("archive_url")]
+    [JsonPropertyName("archive_url")]
     public string ArchiveUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the content type.
     /// </summary>
-    [JsonProperty("content_type")]
+    [JsonPropertyName("content_type")]
     public string ContentType { get; set; }
 
     /// <summary>
     /// Gets or sets the create time.
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public string CreateTime { get; set; }
 
     /// <summary>
     /// Gets or sets the delay.
     /// </summary>
-    [JsonProperty("delay")]
+    [JsonPropertyName("delay")]
     public Delay Delay { get; set; }
 
     /// <summary>
     /// Gets or sets the emails sent.
     /// </summary>
-    [JsonProperty("emails_sent")]
+    [JsonPropertyName("emails_sent")]
     public int EmailsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// Gets or sets the position.
     /// </summary>
-    [JsonProperty("position")]
+    [JsonPropertyName("position")]
     public int Position { get; set; }
 
     /// <summary>
     /// Gets or sets the recipients.
     /// </summary>
-    [JsonProperty("recipients")]
+    [JsonPropertyName("recipients")]
     public Recipient Recipients { get; set; }
 
     /// <summary>
     /// Gets or sets the report summary.
     /// </summary>
-    [JsonProperty("report_summary")]
+    [JsonPropertyName("report_summary")]
     public ReportSummary ReportSummary { get; set; }
 
     /// <summary>
     /// Gets or sets the send time.
     /// </summary>
-    [JsonProperty("send_time")]
+    [JsonPropertyName("send_time")]
     public string SendTime { get; set; }
 
     /// <summary>
     /// Gets or sets the settings.
     /// </summary>
-    [JsonProperty("settings")]
+    [JsonPropertyName("settings")]
     public Setting Settings { get; set; }
 
     /// <summary>
     /// Gets or sets the start time.
     /// </summary>
-    [JsonProperty("start_time")]
+    [JsonPropertyName("start_time")]
     public string StartTime { get; set; }
 
     /// <summary>
     /// Gets or sets the status.
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
 
     /// <summary>
     /// Gets or sets the tracking.
     /// </summary>
-    [JsonProperty("tracking")]
+    [JsonPropertyName("tracking")]
     public Tracking Tracking { get; set; }
 
     /// <summary>
     /// Gets or sets the workflow id.
     /// </summary>
-    [JsonProperty("workflow_id")]
+    [JsonPropertyName("workflow_id")]
     public string WorkflowId { get; set; }
     
     /// <summary>
     /// Gets or sets the web id.
     /// </summary>
-    [JsonProperty("web_id")]
+    [JsonPropertyName("web_id")]
     public int WebId { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -12,10 +12,10 @@ public class WebHookResponse : BaseResponse
         Webhooks = new HashSet<WebHook>();
     }
 
-    [JsonProperty("webhooks")]
+    [JsonPropertyName("webhooks")]
     public IEnumerable<WebHook> Webhooks { get; set; }
 
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 }
 

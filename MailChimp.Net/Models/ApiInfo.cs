@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,54 +16,54 @@ public class ApiInfo
     /// <summary>
     /// Gets or sets the account id.
     /// </summary>
-    [JsonProperty("account_id")]
+    [JsonPropertyName("account_id")]
     public string AccountId { get; set; }
 
-    [JsonProperty("login_id")]
+    [JsonPropertyName("login_id")]
     public string LoginId { get; set; }
     /// <summary>
     /// Gets or sets the account name.
     /// </summary>
-    [JsonProperty("account_name")]
+    [JsonPropertyName("account_name")]
     public string AccountName { get; set; }
-    [JsonProperty("email")]
+    [JsonPropertyName("email")]
     public string Email { get; set; }
-    [JsonProperty("first_name")]
+    [JsonPropertyName("first_name")]
     public string FirstName { get; set; }
-    [JsonProperty("last_name")]
+    [JsonPropertyName("last_name")]
     public string LastName { get; set; }
-    [JsonProperty("username")]
+    [JsonPropertyName("username")]
     public string UserName { get; set; }
-    [JsonProperty("avatar_url")]
+    [JsonPropertyName("avatar_url")]
     public string AvatarUrl { get; set; }
-    [JsonProperty("role")]
+    [JsonPropertyName("role")]
     public string Role { get; set; }
-    [JsonProperty("member_since")]
+    [JsonPropertyName("member_since")]
     public string MemberSince { get; set; }
-    [JsonProperty("pricing_plan_type")]
+    [JsonPropertyName("pricing_plan_type")]
     public string PricingPlanType { get; set; }
-    [JsonProperty("first_payment")]
+    [JsonPropertyName("first_payment")]
     public string FirstPayment { get; set; }
-    [JsonProperty("account_timezone")]
+    [JsonPropertyName("account_timezone")]
     public string AccountTimezone { get; set; }
-    [JsonProperty("account_industry")]
+    [JsonPropertyName("account_industry")]
     public string AccountIndustry { get; set; }
-    [JsonProperty("pro_enabled")]
+    [JsonPropertyName("pro_enabled")]
     public bool ProEnabled { get; set; }
 
-    [JsonProperty("industry_stats")]
+    [JsonPropertyName("industry_stats")]
     public IndustryStats IndustryStats { get; set; }
 
     /// <summary>
     /// Gets or sets the contact.
     /// </summary>
-    [JsonProperty("contact")]
+    [JsonPropertyName("contact")]
     public ApiContact Contact { get; set; }
 
     /// <summary>
     /// Gets or sets the last login.
     /// </summary>
-    [JsonProperty("last_login")]
+    [JsonPropertyName("last_login")]
     public string LastLogin { get; set; }
 
 
@@ -71,12 +71,12 @@ public class ApiInfo
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public Link[] Links { get; set; }
 
     /// <summary>
     /// Gets or sets the total subscribers.
     /// </summary>
-    [JsonProperty("total_subscribers")]
+    [JsonPropertyName("total_subscribers")]
     public int TotalSubscribers { get; set; }
 }

@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,12 +16,12 @@ public class Forwards
     /// <summary>
     /// Gets or sets the forwards count.
     /// </summary>
-    [JsonProperty("forwards_count")]
+    [JsonPropertyName("forwards_count")]
     public int ForwardsCount { get; set; }
 
     /// <summary>
     /// Gets or sets the forwards opens.
     /// </summary>
-    [JsonProperty("forwards_opens")]
+    [JsonPropertyName("forwards_opens")]
     public int ForwardsOpens { get; set; }
 }

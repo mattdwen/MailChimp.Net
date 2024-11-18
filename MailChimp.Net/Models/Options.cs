@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -11,18 +11,18 @@ public class Options
         Choices = new HashSet<string>();
     }
 
-    [JsonProperty("size")]
+    [JsonPropertyName("size")]
     public int Size { get; set; }
 
-    [JsonProperty("default_country")]
+    [JsonPropertyName("default_country")]
     public int DefaultCountry { get; set; }
 
-    [JsonProperty("phone_format")]
+    [JsonPropertyName("phone_format")]
     public string PhoneFormat { get; set; }
 
-    [JsonProperty("date_format")]
+    [JsonPropertyName("date_format")]
     public string DateFormat { get; set; }
 
-    [JsonProperty("choices")]
+    [JsonPropertyName("choices")]
     public IEnumerable<string> Choices { get; set; }
 }

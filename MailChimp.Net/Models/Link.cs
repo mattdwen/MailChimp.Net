@@ -1,11 +1,11 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="Link.cs" company="Brandon Seydel">
 //   N/A
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
 using MailChimp.Net.Core;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -17,31 +17,31 @@ public class Link
     /// <summary>
     /// Gets or sets the href.
     /// </summary>
-    [JsonProperty("href")]
+    [JsonPropertyName("href")]
     public string Href { get; set; }
 
     /// <summary>
     /// Gets or sets the method.
     /// </summary>
-    [JsonProperty("method")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("method")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<Method>))]
     public Method Method { get; set; }
 
     /// <summary>
     /// Gets or sets the rel.
     /// </summary>
-    [JsonProperty("rel")]
+    [JsonPropertyName("rel")]
     public string Rel { get; set; }
 
     /// <summary>
     /// Gets or sets the schema.
     /// </summary>
-    [JsonProperty("schema")]
+    [JsonPropertyName("schema")]
     public string Schema { get; set; }
 
     /// <summary>
     /// Gets or sets the target schema.
     /// </summary>
-    [JsonProperty("targetSchema")]
+    [JsonPropertyName("targetSchema")]
     public string TargetSchema { get; set; }
 }

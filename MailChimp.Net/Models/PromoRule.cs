@@ -5,39 +5,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MailChimp.Net.Core;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class PromoRule
 {
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; }
 
-    [JsonProperty("description")]
+    [JsonPropertyName("description")]
     public string Description { get; set; }
 
-    [JsonProperty("starts_at")]
+    [JsonPropertyName("starts_at")]
     public DateTime? StartsAt { get; set; }
 
-    [JsonProperty("ends_at")]
+    [JsonPropertyName("ends_at")]
     public DateTime? EndsAt { get; set; }
 
-    [JsonProperty("amount")]
+    [JsonPropertyName("amount")]
     public decimal Amount { get; set; }
     
-    [JsonProperty("type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<PromoType>))]
     public PromoType Type { get; set; }
 
-    [JsonProperty("target")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("target")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<PromoTarget>))]
     public PromoTarget Target { get; set; }
 
-    [JsonProperty("enabled")]
+    [JsonPropertyName("enabled")]
     public bool Enabled { get; set; }
 }
 

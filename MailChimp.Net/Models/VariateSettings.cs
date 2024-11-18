@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class VariateSettings
 {
-    [JsonProperty("winning_combination_id")]
+    [JsonPropertyName("winning_combination_id")]
     public string WinningCombinationId { get; set; }
 
-    [JsonProperty("winning_campaign_id")]
+    [JsonPropertyName("winning_campaign_id")]
     public string WinningCampaignId { get; set; }
-    [JsonProperty("winner_criteria")]
+    [JsonPropertyName("winner_criteria")]
     public string WinnerCriteria { get; set; }
-    [JsonProperty("combinations")]
+    [JsonPropertyName("combinations")]
     public IEnumerable<Combination> Combinations { get; set; }
 }

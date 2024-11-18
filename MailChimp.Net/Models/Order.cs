@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using MailChimp.Net.Core;
 using System;
 
@@ -15,79 +15,79 @@ public class Order
         Promos = new List<Promo>();
     }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("customer")]
+    [JsonPropertyName("customer")]
     public Customer Customer { get; set; }
 
-    [JsonProperty("store_id")]
+    [JsonPropertyName("store_id")]
     public string StoreId { get; set; }
 
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
-    [JsonProperty("landing_site")]
+    [JsonPropertyName("landing_site")]
     public string LandingSite { get; set; }
 
-    [JsonProperty("financial_status")]
+    [JsonPropertyName("financial_status")]
     public string FinancialStatus { get; set; }
 
-    [JsonProperty("fulfillment_status")]
+    [JsonPropertyName("fulfillment_status")]
     public string FulfillmentStatus { get; set; }
 
-    [JsonProperty("currency_code")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("currency_code")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<CurrencyCode>))]
     public CurrencyCode CurrencyCode { get; set; }
 
-    [JsonProperty("order_total")]
+    [JsonPropertyName("order_total")]
     public decimal OrderTotal { get; set; }
 
-    [JsonProperty("order_url")]
+    [JsonPropertyName("order_url")]
     public string OrderUrl { get; set; }
 
-    [JsonProperty("discount_total")]
+    [JsonPropertyName("discount_total")]
     public decimal? DiscountTotal { get; set; }
 
-    [JsonProperty("tax_total")]
+    [JsonPropertyName("tax_total")]
     public decimal? TaxTotal { get; set; }
 
-    [JsonProperty("shipping_total")]
+    [JsonPropertyName("shipping_total")]
     public decimal? ShippingTotal { get; set; }
 
-    [JsonProperty("tracking_code")]
+    [JsonPropertyName("tracking_code")]
     public string TrackingCode { get; set; }
 
-    [JsonProperty("processed_at_foreign")]
+    [JsonPropertyName("processed_at_foreign")]
     public string ProcessedAtForeign { get; set; }
 
-    [JsonProperty("cancelled_at_foreign")]
+    [JsonPropertyName("cancelled_at_foreign")]
     public string CancelledAtForeign { get; set; }
 
-    [JsonProperty("shipping_address")]
+    [JsonPropertyName("shipping_address")]
     public OrderAddress ShippingAddress { get; set; }
 
-    [JsonProperty("billing_address")]
+    [JsonPropertyName("billing_address")]
     public OrderAddress BillingAddress { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
 
-    [JsonProperty("updated_at_foreign")]
+    [JsonPropertyName("updated_at_foreign")]
     public DateTime? UpdatedAtForeign { get; set; }
 
-    [JsonProperty("promos")]
+    [JsonPropertyName("promos")]
     public IList<Promo> Promos { get; set; }
 
-    [JsonProperty("lines")]
+    [JsonPropertyName("lines")]
     public IList<Line> Lines { get; set; }
     
-    [JsonProperty("outreach")]
+    [JsonPropertyName("outreach")]
     public Outreach Outreach { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IList<Link> Links { get; set; }
 }

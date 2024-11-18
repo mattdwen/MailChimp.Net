@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,18 +16,18 @@ public class FacebookLikes
     /// <summary>
     /// Gets or sets the facebook like count.
     /// </summary>
-    [JsonProperty("facebook_likes")]
+    [JsonPropertyName("facebook_likes")]
     public int FacebookLikeCount { get; set; }
 
     /// <summary>
     /// Gets or sets the recipient likes.
     /// </summary>
-    [JsonProperty("recipient_likes")]
+    [JsonPropertyName("recipient_likes")]
     public int RecipientLikes { get; set; }
 
     /// <summary>
     /// Gets or sets the unique likes.
     /// </summary>
-    [JsonProperty("unique_likes")]
+    [JsonPropertyName("unique_likes")]
     public int UniqueLikes { get; set; }
 }

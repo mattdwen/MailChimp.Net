@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -14,26 +14,26 @@ namespace MailChimp.Net.Core;
 		/// Possible Values:
 		/// GET - POST - PUT - PATCH
 		/// </summary>
-		[JsonProperty("method")]
+		[JsonPropertyName("method")]
 		public string Method { get; set; }
 		/// <summary>
 		/// The relative path to use for the operation.
 		/// </summary>
-		[JsonProperty("path")]
+		[JsonPropertyName("path")]
 		public string Path { get; set; }
 		/// <summary>
 		/// Any URL params to use, only applies to GET operations.
 		/// </summary>
-		[JsonProperty("params")]
+		[JsonPropertyName("params")]
 		public object Params { get; set; }
 		/// <summary>
 		/// A string containing the JSON body to use with the request.
 		/// </summary>
-		[JsonProperty("body")]
+		[JsonPropertyName("body")]
 		public string Body { get; set; }
 		/// <summary>
 		/// An optional client-supplied id returned with the operation results.
 		/// </summary>
-		[JsonProperty("operation_id")]
+		[JsonPropertyName("operation_id")]
 		public string OperationId { get; set; }
 	}

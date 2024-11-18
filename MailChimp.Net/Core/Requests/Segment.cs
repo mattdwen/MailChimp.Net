@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
 public class Segment
 {
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
-    [JsonProperty("static_segment")]
+    [JsonPropertyName("static_segment")]
     public IEnumerable<string> EmailAddresses { get; set; }
-    [JsonProperty("options")]
+    [JsonPropertyName("options")]
     public SegmentOptions Options { get; set; }
 }

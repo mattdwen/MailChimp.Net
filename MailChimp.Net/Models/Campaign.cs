@@ -6,7 +6,7 @@
 
 using System;
 using MailChimp.Net.Core;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -18,106 +18,106 @@ public class Campaign
     /// <summary>
     /// Gets or sets the archive url.
     /// </summary>
-    [JsonProperty("archive_url")]
+    [JsonPropertyName("archive_url")]
     public string ArchiveUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the long archive url.
     /// </summary>
-    [JsonProperty("long_archive_url")]
+    [JsonPropertyName("long_archive_url")]
     public string LongArchiveUrl { get; set; }
 
     /// <summary>
     /// Gets or sets the content type.
     /// </summary>
-    [JsonProperty("content_type")]
+    [JsonPropertyName("content_type")]
     public string ContentType { get; set; }
 
     /// <summary>
     /// Gets or sets the create time.
     /// </summary>
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public DateTime CreateTime { get; set; }
 
     /// <summary>
     /// Gets or sets the delivery status.
     /// </summary>
-    [JsonProperty("delivery_status")]
+    [JsonPropertyName("delivery_status")]
     public DeliveryStatus DeliveryStatus { get; set; }
 
-    [JsonProperty("rss_opts")]
+    [JsonPropertyName("rss_opts")]
     public RssOptions RssOptions { get; set; }
 
-    [JsonProperty("social_card")]
+    [JsonPropertyName("social_card")]
     public SocialCard SocialCard { get; set; }
 
-    [JsonProperty("report_summary")]
+    [JsonPropertyName("report_summary")]
     public ReportSummary ReportSummary { get; set; }
 
     /// <summary>
     /// Gets or sets the emails sent.
     /// </summary>
-    [JsonProperty("emails_sent")]
+    [JsonPropertyName("emails_sent")]
     public int? EmailsSent { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the web id.
     /// </summary>
-    [JsonProperty("web_id")]
+    [JsonPropertyName("web_id")]
     public int WebId { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public Link[] Links { get; set; }
 
     /// <summary>
     /// Gets or sets the recipients.
     /// </summary>
-    [JsonProperty("recipients")]
+    [JsonPropertyName("recipients")]
     public Recipient Recipients { get; set; }
 
     /// <summary>
     /// Gets or sets the send time.
     /// </summary>
-    [JsonProperty("send_time")]
+    [JsonPropertyName("send_time")]
     public DateTime? SendTime { get; set; }
 
     /// <summary>
     /// Gets or sets the settings.
     /// </summary>
-    [JsonProperty("settings")]
+    [JsonPropertyName("settings")]
     public Setting Settings { get; set; }
 
     /// <summary>
     /// Gets or sets the status.
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
 
     /// <summary>
     /// Gets or sets the tracking.
     /// </summary>
-    [JsonProperty("tracking")]
+    [JsonPropertyName("tracking")]
     public Tracking Tracking { get; set; }
 
     /// <summary>
     /// Gets or sets the type.
     /// </summary>
-    [JsonProperty("type")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("type")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<CampaignType>))]
     public CampaignType Type { get; set; }
 
-    [JsonProperty("dashboard_link")]
+    [JsonPropertyName("dashboard_link")]
     public string DashboardLink { get; internal set; }
 
-    [JsonProperty("variate_settings")]
+    [JsonPropertyName("variate_settings")]
     public VariateSettings VariateSettings { get; set; }
 }

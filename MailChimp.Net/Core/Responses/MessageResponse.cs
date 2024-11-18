@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Models;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -28,6 +28,6 @@ public class MessageResponse : BaseResponse
     /// <summary>
     /// Gets or sets the messages.
     /// </summary>
-    [JsonProperty("conversation_messages")]
+    [JsonPropertyName("conversation_messages")]
     public IEnumerable<Message> Messages { get; set; }
 }

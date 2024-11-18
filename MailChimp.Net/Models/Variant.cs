@@ -1,44 +1,44 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class Variant
 {
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("title")]
+    [JsonPropertyName("title")]
     public string Title { get; set; }
 
-    [JsonProperty("url")]
+    [JsonPropertyName("url")]
     public string Url { get; set; }
 
-    [JsonProperty("sku")]
+    [JsonPropertyName("sku")]
     public string Sku { get; set; }
 
-    [JsonProperty("price")]
+    [JsonPropertyName("price")]
     public decimal? Price { get; set; }
 
-    [JsonProperty("inventory_quantity")]
+    [JsonPropertyName("inventory_quantity")]
     public int? InventoryQuantity { get; set; }
 
-    [JsonProperty("image_url")]
+    [JsonPropertyName("image_url")]
     public string ImageUrl { get; set; }
 
-    [JsonProperty("backorders")]
+    [JsonPropertyName("backorders")]
     public string Backorders { get; set; }
 
-    [JsonProperty("visibility")]
+    [JsonPropertyName("visibility")]
     public string Visibility { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IList<Link> Links { get; set; }
 }

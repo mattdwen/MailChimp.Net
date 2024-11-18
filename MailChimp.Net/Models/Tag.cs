@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 using MailChimp.Net.Core;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -22,13 +22,13 @@ namespace MailChimp.Net.Models;
 		/// <summary>
 		/// Gets or sets the tag's name.
 		/// </summary>
-		[JsonProperty("name")]
+		[JsonPropertyName("name")]
 		public string Name { get; set; }
 
     /// <summary>
     /// Gets or sets the tag's status(active/inactive).
     /// </summary>
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
 
 }
@@ -44,6 +44,6 @@ public class Tags
         MemberTags = new List<Tag>();
     }
 
-    [JsonProperty("tags")]
+    [JsonPropertyName("tags")]
     public List<Tag> MemberTags { get; set; }
 }

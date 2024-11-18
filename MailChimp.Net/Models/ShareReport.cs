@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,12 +16,12 @@ public class ShareReport
     /// <summary>
     /// Gets or sets the share password.
     /// </summary>
-    [JsonProperty("share_password")]
+    [JsonPropertyName("share_password")]
     public string SharePassword { get; set; }
 
     /// <summary>
     /// Gets or sets the share url.
     /// </summary>
-    [JsonProperty("share_url")]
+    [JsonPropertyName("share_url")]
     public string ShareUrl { get; set; }
 }

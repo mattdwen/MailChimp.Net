@@ -2,7 +2,7 @@
 
 namespace MailChimp.Net.Models;
 
-	using Newtonsoft.Json;
+	using System.Text.Json.Serialization;
 
 	public class MergeField
 	{
@@ -14,39 +14,39 @@ namespace MailChimp.Net.Models;
 			DefaultValue = string.Empty;
 		}
 
-		[JsonProperty("merge_id")]
+		[JsonPropertyName("merge_id")]
 		public int MergeId { get; set; }
 
-		[JsonProperty("tag")]
+		[JsonPropertyName("tag")]
 		public string Tag { get; set; }
 
-		[JsonProperty("name")]
+		[JsonPropertyName("name")]
 		public string Name { get; set; }
 
-		[JsonProperty("type")]
+		[JsonPropertyName("type")]
 		public string Type { get; set; }
 
-		[JsonProperty("required")]
+		[JsonPropertyName("required")]
 		public bool Required { get; set; }
 
-		[JsonProperty("default_value")]
+		[JsonPropertyName("default_value")]
 		public string DefaultValue { get; set; }
 
-		[JsonProperty("public")]
+		[JsonPropertyName("public")]
 		public bool Public { get; set; }
 
-		[JsonProperty("display_order")]
+		[JsonPropertyName("display_order")]
 		public int DisplayOrder { get; set; }
 
-		[JsonProperty("options")]
+		[JsonPropertyName("options")]
 		public Options Options { get; set; }
 
-		[JsonProperty("help_text")]
+		[JsonPropertyName("help_text")]
 		public string HelpText { get; set; }
 
-		[JsonProperty("list_id")]
+		[JsonPropertyName("list_id")]
 		public string ListId { get; set; }
 
-		[JsonProperty("_links")]
+		[JsonPropertyName("_links")]
 		public IEnumerable<Link> Links { get; set; }
 	}

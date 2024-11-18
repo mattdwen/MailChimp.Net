@@ -1,12 +1,12 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public abstract class CrmCampaign
 {
-    [JsonProperty("campaign")]
+    [JsonPropertyName("campaign")]
     public bool CreateCampaignInAccount { get; set; }
 
-    [JsonProperty("notes")]
+    [JsonPropertyName("notes")]
     public bool UpdateNotesForCampaign { get; set; }
 }

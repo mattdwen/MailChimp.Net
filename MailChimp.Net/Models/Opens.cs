@@ -5,7 +5,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -17,24 +17,24 @@ public class Opens
     /// <summary>
     /// Gets or sets the last open.
     /// </summary>
-    [JsonProperty("last_open")]
+    [JsonPropertyName("last_open")]
     public DateTime? LastOpen { get; set; }
 
     /// <summary>
     /// Gets or sets the open rate.
     /// </summary>
-    [JsonProperty("open_rate")]
+    [JsonPropertyName("open_rate")]
     public double OpenRate { get; set; }
 
     /// <summary>
     /// Gets or sets the opens total.
     /// </summary>
-    [JsonProperty("opens_total")]
+    [JsonPropertyName("opens_total")]
     public int OpensTotal { get; set; }
 
     /// <summary>
     /// Gets or sets the unique opens.
     /// </summary>
-    [JsonProperty("unique_opens")]
+    [JsonPropertyName("unique_opens")]
     public int UniqueOpens { get; set; }
 }

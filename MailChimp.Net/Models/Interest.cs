@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -26,42 +26,42 @@ public class Interest
     /// <summary>
     /// Gets or sets the display order.
     /// </summary>
-    [JsonProperty("display_order")]
+    [JsonPropertyName("display_order")]
     public int DisplayOrder { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the interest category id.
     /// </summary>
-    [JsonProperty("category_id")]
+    [JsonPropertyName("category_id")]
     public string InterestCategoryId { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 
     /// <summary>
     /// Gets or sets the list id.
     /// </summary>
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 
     /// <summary>
     /// Gets or sets the name.
     /// </summary>
-    [JsonProperty("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
 
     /// <summary>
     /// Gets or sets the subscriber count.
     /// </summary>
-    [JsonProperty("subscriber_count")]
+    [JsonPropertyName("subscriber_count")]
     public string SubscriberCount { get; set; }
 }

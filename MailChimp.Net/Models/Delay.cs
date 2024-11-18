@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,24 +16,24 @@ public class Delay
     /// <summary>
     /// Gets or sets the action.
     /// </summary>
-    [JsonProperty("action")]
+    [JsonPropertyName("action")]
     public string Action { get; set; }
 
     /// <summary>
     /// Gets or sets the amount.
     /// </summary>
-    [JsonProperty("amount")]
+    [JsonPropertyName("amount")]
     public int Amount { get; set; }
 
     /// <summary>
     /// Gets or sets the direction.
     /// </summary>
-    [JsonProperty("direction")]
+    [JsonPropertyName("direction")]
     public string Direction { get; set; }
 
     /// <summary>
     /// Gets or sets the type.
     /// </summary>
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; }
 }

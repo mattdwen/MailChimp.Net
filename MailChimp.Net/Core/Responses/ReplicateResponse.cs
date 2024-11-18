@@ -1,5 +1,5 @@
 ﻿using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System;
 using System.Collections.Generic;
 
@@ -13,42 +13,42 @@ public class ReplicateResponse
         Links = new HashSet<Link>();
     }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; }
 
-    [JsonProperty("create_time")]
+    [JsonPropertyName("create_time")]
     public DateTime CreateTime { get; set; }
 
-    [JsonProperty("archive_url")]
+    [JsonPropertyName("archive_url")]
     public string ArchiveUrl { get; set; }
 
-    [JsonProperty("status")]
+    [JsonPropertyName("status")]
     public string Status { get; set; }
 
-    [JsonProperty("emails_sent")]
+    [JsonPropertyName("emails_sent")]
     public int EmailsSent { get; set; }
 
-    [JsonProperty("send_time")]
+    [JsonPropertyName("send_time")]
     public string SendTime { get; set; }
 
-    [JsonProperty("content_type")]
+    [JsonPropertyName("content_type")]
     public string ContentType { get; set; }
 
-    [JsonProperty("recipients")]
+    [JsonPropertyName("recipients")]
     public Recipient Recipients { get; set; }
 
-    [JsonProperty("settings")]
+    [JsonPropertyName("settings")]
     public Setting Settings { get; set; }
 
-    [JsonProperty("tracking")]
+    [JsonPropertyName("tracking")]
     public Tracking Tracking { get; set; }
 
-    [JsonProperty("delivery_status")]
+    [JsonPropertyName("delivery_status")]
     public DeliveryStatus DeliveryStatus { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public IEnumerable<Link> Links { get; set; }
 }

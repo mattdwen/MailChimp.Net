@@ -1,5 +1,5 @@
 ﻿using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using System.Collections.Generic;
 
 namespace MailChimp.Net.Core;
@@ -7,6 +7,6 @@ namespace MailChimp.Net.Core;
 public class ECommerceResponse : BaseResponse
 {
 
-    [JsonProperty("stores")]
+    [JsonPropertyName("stores")]
     public IEnumerable<Store> Stores { get; set; }
 }

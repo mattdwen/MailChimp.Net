@@ -9,7 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace MailChimp.Net.Core;
 
@@ -18,9 +19,9 @@ namespace MailChimp.Net.Core;
 /// </summary>
 public static class HttpRequestExtensions
 {
-    private static readonly JsonSerializerSettings JsonSettings = new()
+    private static readonly JsonSerializerOptions JsonSettings = new()
     {
-        NullValueHandling = NullValueHandling.Ignore
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
     };
 
     /// <summary>
@@ -45,10 +46,10 @@ public static class HttpRequestExtensions
         this HttpClient client, 
         string requestUri, 
         T value,
-        JsonSerializerSettings settings = null)
+        JsonSerializerOptions settings = null)
     {
         var content = new StringContent(
-            JsonConvert.SerializeObject(value, settings ?? JsonSettings),
+            JsonSerializer.Serialize(value, settings ?? JsonSettings),
             Encoding.UTF8,
             "application/json");
 
@@ -107,10 +108,10 @@ public static class HttpRequestExtensions
         this HttpClient client,
         string requestUri,
         T value,
-        JsonSerializerSettings settings = null)
+        JsonSerializerOptions settings = null)
     {
         var content = new StringContent(
-            JsonConvert.SerializeObject(value, settings ?? JsonSettings),
+            JsonSerializer.Serialize(value, settings ?? JsonSettings),
             Encoding.UTF8,
             "application/json");
 
@@ -138,10 +139,10 @@ public static class HttpRequestExtensions
         this HttpClient client,
         string requestUri,
         T value,
-        JsonSerializerSettings settings = null)
+        JsonSerializerOptions settings = null)
     {
         var content = new StringContent(
-            JsonConvert.SerializeObject(value, settings ?? JsonSettings),
+            JsonSerializer.Serialize(value, settings ?? JsonSettings),
             Encoding.UTF8,
             "application/json");
 

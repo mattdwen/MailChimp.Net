@@ -8,15 +8,15 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
-
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
 /// <summary>
 /// The string enum description converter.
 /// </summary>
-public class StringEnumDescriptionConverter : JsonConverter
+public class StringEnumDescriptionConverter<T> : JsonConverter<T> where T : Enum
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="StringEnumDescriptionConverter"/> class.
@@ -60,28 +60,49 @@ public class StringEnumDescriptionConverter : JsonConverter
     /// <param name="reader">
     /// The reader.
     /// </param>
-    /// <param name="objectType">
+    /// <param name="typeToConvert">
     /// The object type.
     /// </param>
-    /// <param name="existingValue">
-    /// The existing value.
-    /// </param>
-    /// <param name="serializer">
-    /// The serializer.
+    /// <param name="options">
+    /// The serializer options.
     /// </param>
     /// <returns>
     /// The <see cref="object"/>.
     /// </returns>
-    public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+    public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
-        objectType = Nullable.GetUnderlyingType(objectType) ?? objectType;
-        var eTypeVal = objectType
-                    .GetRuntimeFields().Cast<MemberInfo>()
-                    .Union(objectType.GetRuntimeProperties())
-                    .Where(x => x.GetCustomAttributes(typeof(DescriptionAttribute)).Any())
-                    .FirstOrDefault(x => ((DescriptionAttribute)x.GetCustomAttribute(typeof(DescriptionAttribute))).Description == (string)reader.Value);
+        if (reader.TokenType != JsonTokenType.String)
+        {
+            throw new JsonException($"Unexpected token type {reader.TokenType}, expected a string.");
+        }
 
-        return Enum.Parse(objectType, eTypeVal?.Name ?? reader.Value.ToString());
+        var enumString = reader.GetString();
+        var underlyingType = Nullable.GetUnderlyingType(typeToConvert) ?? typeToConvert;
+
+        // Find a matching description
+        var enumField = underlyingType
+            .GetFields(BindingFlags.Public | BindingFlags.Static)
+            .FirstOrDefault(field =>
+            {
+                var descriptionAttribute = field.GetCustomAttribute<DescriptionAttribute>();
+                return descriptionAttribute != null && descriptionAttribute.Description.Equals(enumString, StringComparison.OrdinalIgnoreCase);
+            });
+
+        if (enumField != null)
+        {
+            return (T)Enum.Parse(underlyingType, enumField.Name);
+        }
+
+        // Fallback to matching the enum name (case insensitive)
+        var matchingEnumNames = Enum.GetNames(underlyingType)
+                                    .FirstOrDefault(name => name.Equals(enumString, StringComparison.OrdinalIgnoreCase));
+
+        if (matchingEnumNames != null)
+        {
+            return (T)Enum.Parse(underlyingType, matchingEnumNames);
+        }
+
+        throw new JsonException($"Unable to convert \"{enumString}\" to {underlyingType.Name}.");
     }
 
     /// <summary>
@@ -89,36 +110,31 @@ public class StringEnumDescriptionConverter : JsonConverter
     ///
     /// </summary>
     /// <param name="writer">
-    /// The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.
+    /// The <see cref="T:System.Text.Json.Utf8JsonWriter"/> to write to.
     /// </param>
     /// <param name="value">
     /// The value.
     /// </param>
-    /// <param name="serializer">
-    /// The calling serializer.
+    /// <param name="options">
+    /// The serializer options.
     /// </param>
-    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+
+    public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
     {
-        if (value == null)
-        {
-            writer.WriteNull();
-            return;
-        }
-
-        var type = value.GetType();
+        var type = typeof(T);
         var name = Enum.GetName(type, value);
-        if (string.IsNullOrWhiteSpace(name)) {
-            writer.WriteNull();
+
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            writer.WriteNullValue();
             return;
         }
 
-        var description = type.GetRuntimeField(name)
-                              //.GetField(name) // I prefer to get attributes this way
-                              .GetCustomAttributes(false)
-                              .OfType<DescriptionAttribute>()
-                              .Select(x => x.Description)
+        var description = type.GetField(name)
+                              .GetCustomAttributes<DescriptionAttribute>(false)
+                              .Select(attr => attr.Description)
                               .SingleOrDefault();
 
-        writer.WriteValue(description ?? name);
+        writer.WriteStringValue(description ?? name);
     }
 }

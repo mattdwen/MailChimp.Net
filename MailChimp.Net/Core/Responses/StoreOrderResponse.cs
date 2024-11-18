@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MailChimp.Net.Models;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Core;
 
@@ -12,9 +12,9 @@ public class StoreOrderResponse : BaseResponse
         Orders = new List<Order>();
     }
 
-    [JsonProperty("store_id")]
+    [JsonPropertyName("store_id")]
     public string StoreId { get; set; }
 
-    [JsonProperty("orders")]
+    [JsonPropertyName("orders")]
     public IList<Order> Orders { get; set; }
 }

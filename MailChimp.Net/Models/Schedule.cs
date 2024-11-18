@@ -1,18 +1,18 @@
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
 public class Schedule
 {
-    [JsonProperty("hour")]
+    [JsonPropertyName("hour")]
     public int Hour { get; set; }
 
-    [JsonProperty("daily_send")]
+    [JsonPropertyName("daily_send")]
     public DailySend DailySend { get; set; }
 
-    [JsonProperty("weekly_send_day")]
+    [JsonPropertyName("weekly_send_day")]
     public string DayOfWeekToSend { get; set; }
 
-    [JsonProperty("monthly_send_date")]
+    [JsonPropertyName("monthly_send_date")]
     public int DayOfMonthToSend { get; set; }
 }

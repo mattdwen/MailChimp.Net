@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using MailChimp.Net.Core;
 
 namespace MailChimp.Net.Models;
@@ -13,37 +13,37 @@ public class Cart
         Links = new HashSet<Link>();
     }
 
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
-    [JsonProperty("customer")]
+    [JsonPropertyName("customer")]
     public Customer Customer { get; set; }
 
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
-    [JsonProperty("checkout_url")]
+    [JsonPropertyName("checkout_url")]
     public string CheckoutUrl { get; set; }
 
-    [JsonProperty("currency_code")]
-    [JsonConverter(typeof(StringEnumDescriptionConverter))]
+    [JsonPropertyName("currency_code")]
+    [JsonConverter(typeof(StringEnumDescriptionConverter<CurrencyCode>))]
     public CurrencyCode CurrencyCode { get; set; }
 
-    [JsonProperty("order_total")]
+    [JsonPropertyName("order_total")]
     public decimal? OrderTotal { get; set; }
 
-    [JsonProperty("tax_total")]
+    [JsonPropertyName("tax_total")]
     public decimal? TaxTotal { get; set; }
 
-    [JsonProperty("lines")]
+    [JsonPropertyName("lines")]
     public ICollection<Line> Lines { get; set; }
 
-    [JsonProperty("created_at")]
+    [JsonPropertyName("created_at")]
     public DateTime? CreatedAt { get; set; }
 
-    [JsonProperty("updated_at")]
+    [JsonPropertyName("updated_at")]
     public DateTime? UpdatedAt { get; set; }
 
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public ICollection<Link> Links { get; set; }
 }

@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace MailChimp.Net.Models;
 
@@ -16,60 +16,60 @@ public class Conversation
     /// <summary>
     /// Gets or sets the campaign id.
     /// </summary>
-    [JsonProperty("campaign_id")]
+    [JsonPropertyName("campaign_id")]
     public string CampaignId { get; set; }
 
     /// <summary>
     /// Gets or sets the from email.
     /// </summary>
-    [JsonProperty("from_email")]
+    [JsonPropertyName("from_email")]
     public string FromEmail { get; set; }
 
     /// <summary>
     /// Gets or sets the from label.
     /// </summary>
-    [JsonProperty("from_label")]
+    [JsonPropertyName("from_label")]
     public string FromLabel { get; set; }
 
     /// <summary>
     /// Gets or sets the id.
     /// </summary>
-    [JsonProperty("id")]
+    [JsonPropertyName("id")]
     public string Id { get; set; }
 
     /// <summary>
     /// Gets or sets the last message.
     /// </summary>
-    [JsonProperty("last_message")]
+    [JsonPropertyName("last_message")]
     public Message LastMessage { get; set; }
 
     /// <summary>
     /// Gets or sets the links.
     /// </summary>
-    [JsonProperty("_links")]
+    [JsonPropertyName("_links")]
     public Link[] Links { get; set; }
 
     /// <summary>
     /// Gets or sets the list id.
     /// </summary>
-    [JsonProperty("list_id")]
+    [JsonPropertyName("list_id")]
     public string ListId { get; set; }
 
     /// <summary>
     /// Gets or sets the message count.
     /// </summary>
-    [JsonProperty("message_count")]
+    [JsonPropertyName("message_count")]
     public int MessageCount { get; set; }
 
     /// <summary>
     /// Gets or sets the subject.
     /// </summary>
-    [JsonProperty("subject")]
+    [JsonPropertyName("subject")]
     public string Subject { get; set; }
 
     /// <summary>
     /// Gets or sets the unread messages.
     /// </summary>
-    [JsonProperty("unread_messages")]
+    [JsonPropertyName("unread_messages")]
     public int UnreadMessages { get; set; }
 }
