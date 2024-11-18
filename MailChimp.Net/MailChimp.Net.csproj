@@ -11,8 +11,6 @@
         <DefineConstants>DEBUG;TRACE</DefineConstants>
         <ErrorReport>prompt</ErrorReport>
         <WarningLevel>4</WarningLevel>
-        <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-        <RunCodeAnalysis>true</RunCodeAnalysis>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
         <DebugType>pdbonly</DebugType>
@@ -50,14 +48,12 @@
         <PackageTags>MailChimp Mail Chimp 3.0 v3.0 MailChimp.Net.V3 MailChimpv3.0 MailChimpv3 MailChimp3</PackageTags>
         <PackageLicenseUrl></PackageLicenseUrl>
         <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-        <RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
         <AssemblyVersion>5.5.0</AssemblyVersion>
         <FileVersion>5.5.0</FileVersion>
-        <EnableNETAnalyzers>True</EnableNETAnalyzers>
         <PackageIcon>icon.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-        <AnalysisLevel>latest</AnalysisLevel>
+        <AnalysisMode>AllEnabledByDefault</AnalysisMode>
 
     </PropertyGroup>
     <ItemGroup>
